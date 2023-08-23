@@ -1,34 +1,26 @@
-import * as React from "react";
-import { Box, ChakraProvider, extendTheme } from "@chakra-ui/react";
-import AirbnbCard from "./Home/Home";
-
-const colors = {
-  brand: {
-    900: "#1a365d",
-    800: "#153e75",
-    700: "#2a69ac",
-  },
+import { Hero, VideosList, Footer } from "./sections";
+import Home from "./Sections/Home";
+import Nav from "./components/Nav";
+const App = () => {
+  return (
+    <div>
+      <main className="relative">
+        <Nav />
+        <section className="xl:padding-1 wide:padding-r padding-b">
+          <Hero />
+        </section>
+        <section className="padding">
+          <Home />
+        </section>
+        <section className="padding">
+          <VideosList />
+        </section>
+        <section className="bg-black padding-x padding-t pb-8">
+          <Footer />
+        </section>
+      </main>
+    </div>
+  );
 };
 
-const theme = extendTheme({ colors });
-
-function App() {
-  return (
-    <ChakraProvider theme={theme}>
-      <div>
-        <App />
-        <AirbnbCard />
-        <Box
-          as="button"
-          borderRadius="md"
-          bg="tomato"
-          color="white"
-          px={4}
-          h={8}
-        >
-          Button
-        </Box>
-      </div>
-    </ChakraProvider>
-  );
-}
+export default App;
